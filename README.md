@@ -46,10 +46,10 @@ This is a simple Next.js application that allows users to increase or decrease a
 
 5. **Run The Dev Server**
 
-```
+   ```
    npm run dev
    yarn dev
-```
+   ```
 
 ### Project Structure
 
