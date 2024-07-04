@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Number Increaser App
 
-## Getting Started
+This is a simple Next.js application that allows users to increase or decrease a number. The current number is stored in a Redis database and persists across sessions.
 
-First, run the development server:
+## Project Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v14.x or v16.x)
+- npm or Yarn
+- Redis
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Installation
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. **Clone The Repository:**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   ```bash
+    git clone https://github.com/PandaTryingCoding/Number-Increase-Decrease.git
+    cd number-increaser
+   ```
 
-## Learn More
+2. **Install Dependencies:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```using Yarn
+    yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Setup ENV:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   Create a .env.local file in the root of the project and add the following line:
+   REDIS_URL=redis://127.0.0.1:6379
 
-## Deploy on Vercel
+4. **Start The Redis Server:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   On Ubuntu:
+   sudo apt update
+   sudo apt install redis-server
+   sudo systemctl start redis-server
+   sudo systemctl enable redis-server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. **Run The Dev Server**
+
+   npm run dev
+   yarn dev
+
+### Project Structure
+
+- lib/redisClient.js - Redis client setup.
+- pages/api/getNumber.js - API route to get the current number.
+- pages/api/updateNumber.js - API route to update the current number.
+- pages/index.js - Main frontend component displaying the number and buttons to increase/decrease it.
+
+### Usage
+
+- The app displays a number on the main page.
+- Use the "+" button to increase the number.
+- Use the "-" button to decrease the number.
+- The current number is stored in Redis and persists across sessions.
