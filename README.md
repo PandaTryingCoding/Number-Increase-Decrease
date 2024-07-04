@@ -28,20 +28,28 @@ This is a simple Next.js application that allows users to increase or decrease a
 3. **Setup ENV:**
 
    Create a .env.local file in the root of the project and add the following line:
+
+   ```bash
    REDIS_URL=redis://127.0.0.1:6379
+   ```
 
 4. **Start The Redis Server:**
 
    On Ubuntu:
+
+   ```
    sudo apt update
    sudo apt install redis-server
    sudo systemctl start redis-server
    sudo systemctl enable redis-server
+   ```
 
 5. **Run The Dev Server**
 
+```
    npm run dev
    yarn dev
+```
 
 ### Project Structure
 
